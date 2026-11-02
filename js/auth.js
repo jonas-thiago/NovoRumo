@@ -13,11 +13,7 @@ if (loginForm) {
             return;
         }
 
-        showToast("Login realizado com sucesso!");
-
-        setTimeout(() => {
-            window.location.href = "perfil.html";
-        }, 900);
+        showToast("Esta é uma demonstração visual. O painel de acompanhamento será desenvolvido na próxima etapa.");
     });
 }
 

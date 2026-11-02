@@ -1,49 +1,156 @@
 
+/* ========================================
+   LOGIN E CADASTRO - NOVORUMO
+======================================== */
+
 .auth-page {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: var(--bg);
 }
+
+.auth-page .header {
+    position: relative;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.auth-page .navbar {
+    height: 76px;
+}
+
+/* Logo do cabeçalho */
+
+.auth-page .logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--text);
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.auth-page .logo-icon {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.auth-page .logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.auth-page .logo > span:last-child > span {
+    color: var(--green);
+}
+
+/* Botões do cabeçalho */
+
+.auth-page .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.auth-page .login-button,
+.auth-page .nav-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 17px;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 700;
+    transition: .2s ease;
+}
+
+.auth-page .login-button {
+    color: var(--green);
+    border: 1px solid rgba(0, 230, 118, .35);
+    background: rgba(0, 230, 118, .06);
+}
+
+.auth-page .login-button:hover {
+    background: rgba(0, 230, 118, .13);
+    border-color: var(--green);
+}
+
+.auth-page .nav-download {
+    background: var(--green);
+    color: #092015;
+}
+
+.auth-page .nav-download:hover {
+    background: #70f5a8;
+    transform: translateY(-2px);
+}
+
+/* Área principal */
 
 .auth-main {
     flex: 1;
     display: grid;
     place-items: center;
-    padding: 130px 20px 70px;
+    padding: 55px 20px;
 }
 
 .auth-modal {
     width: min(430px, 100%);
-    background: #0c120e;
-    border: 1px solid var(--border);
-    border-radius: 22px;
+    background: linear-gradient(145deg, #19231d, #111914);
+    border: 1px solid var(--line);
+    border-radius: 20px;
     padding: 35px;
     position: relative;
-    box-shadow: 0 25px 80px rgba(0,0,0,0.35);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, .35);
 }
+
+/* Logo dentro do formulário */
 
 .auth-logo {
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
-    background: var(--green);
-    color: #001b0d;
-    display: grid;
-    place-items: center;
-    font-weight: 900;
-    margin-bottom: 25px;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    background: transparent;
 }
 
+.auth-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Títulos */
+
 .auth-heading h2 {
-    font-size: 23px;
+    font-family: var(--display);
+    font-size: 25px;
+    letter-spacing: -.7px;
+    color: var(--text);
     margin-bottom: 7px;
 }
 
 .auth-heading p {
-    color: var(--gray);
-    font-size: 11px;
-    margin-bottom: 25px;
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 27px;
 }
+
+/* Formulário */
 
 .auth-form {
     display: flex;
@@ -51,39 +158,52 @@
     gap: 17px;
 }
 
-.auth-form label {
+.auth-form > label:not(.terms) {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    font-size: 10px;
-    color: #aeb8b2;
+    font-size: 12px;
+    font-weight: 600;
+    color: #c4d0c8;
 }
 
 .auth-form input[type="email"],
 .auth-form input[type="password"],
 .auth-form input[type="text"] {
-    border: 1px solid var(--border);
-    background: #080d0a;
-    color: var(--white);
+    width: 100%;
+    min-width: 0;
+    border: 1px solid var(--line);
+    background: #0d1510;
+    color: var(--text);
     border-radius: 9px;
-    padding: 12px;
-    outline: 0;
-    font-size: 11px;
+    padding: 13px 14px;
+    outline: none;
+    font-family: var(--font);
+    font-size: 13px;
+    transition: .2s;
+}
+
+.auth-form input::placeholder {
+    color: #65736a;
 }
 
 .auth-form input:focus {
-    border-color: rgba(0,230,118,0.4);
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(0, 230, 118, .08);
 }
+
+/* Opções e termos */
 
 .form-options {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 }
 
 .form-options a {
-    color: var(--green);
-    font-size: 9px;
+    color: var(--green2);
+    font-size: 11px;
 }
 
 .remember,
@@ -91,64 +211,121 @@
     display: flex !important;
     flex-direction: row !important;
     align-items: center;
-    gap: 7px !important;
+    gap: 8px !important;
+    font-size: 11px !important;
+    color: var(--muted) !important;
 }
 
 .remember input,
 .terms input {
     accent-color: var(--green);
+    cursor: pointer;
 }
 
+.terms {
+    margin-top: 2px;
+}
+
+/* Botão principal */
+
 .auth-submit {
-    border: 0;
+    width: 100%;
+    border: none;
     background: var(--green);
-    color: #001b0d;
-    border-radius: 10px;
-    padding: 13px;
-    font-size: 11px;
+    color: #082014;
+    border-radius: 9px;
+    padding: 14px;
+    font-family: var(--font);
+    font-size: 13px;
     font-weight: 800;
-    transition: var(--transition);
+    transition: .2s;
     cursor: pointer;
 }
 
 .auth-submit:hover {
-    box-shadow: 0 10px 30px rgba(0,230,118,0.18);
+    background: #70f5a8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 230, 118, .15);
+}
+
+/* Links inferiores */
+
+.auth-switch {
+    margin-top: 23px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+}
+
+.auth-switch a {
+    color: var(--green);
+    font-weight: 700;
+    margin-left: 4px;
 }
 
 .auth-back {
     display: inline-flex;
     margin-top: 20px;
-    color: var(--gray);
-    font-size: 10px;
-    transition: var(--transition);
+    color: var(--muted);
+    font-size: 11px;
+    transition: .2s;
 }
 
 .auth-back:hover {
     color: var(--green);
 }
 
-.auth-switch {
-    margin-top: 22px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    color: var(--gray);
-    font-size: 10px;
-    text-align: center;
+/* Notificações */
+
+.auth-page .toast {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    gap: 12px;
+    max-width: min(380px, calc(100% - 40px));
+    padding: 15px 20px;
+    background: #1a2820;
+    border: 1px solid rgba(0, 230, 118, .3);
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .35);
 }
 
-.auth-switch a {
+.auth-page .toast.show {
+    display: flex;
+    animation: toastAppear .25s ease;
+}
+
+.auth-page .toast > span {
     color: var(--green);
+    font-size: 18px;
+    font-weight: 800;
 }
 
-@media (max-width: 650px) {
-    .auth-main {
-        padding: 105px 14px 45px;
-    }
+.auth-page .toast p {
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.5;
+}
 
-    .auth-modal {
-        padding: 25px;
+@keyframes toastAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
+
+/* ========================================
+   PERFIL
+======================================== */
 
 .profile-page {
     min-height: calc(100vh - 80px);
@@ -163,11 +340,11 @@
     max-width: 410px;
     padding: 38px 34px;
     text-align: center;
-    background: rgba(13, 20, 16, 0.92);
-    border: 1px solid var(--border);
+    background: rgba(13, 20, 16, .92);
+    border: 1px solid var(--line);
     border-radius: 22px;
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
-    animation: profileAppear 0.55s ease;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .38);
+    animation: profileAppear .55s ease;
 }
 
 .profile-heading p {
@@ -180,14 +357,14 @@
 
 .profile-heading h1 {
     margin: 0;
-    color: var(--white);
+    color: var(--text);
     font-size: 27px;
 }
 
 .profile-heading > span {
     display: block;
     margin-top: 9px;
-    color: var(--gray);
+    color: var(--muted);
     font-size: 11px;
 }
 
@@ -204,18 +381,18 @@
     border-radius: 50%;
     border: 3px solid var(--green);
     background: #0a100c;
-    box-shadow: 0 0 28px rgba(0, 230, 118, 0.16);
+    box-shadow: 0 0 28px rgba(0, 230, 118, .16);
 }
 
 .profile-card h2 {
     margin: 0;
-    color: var(--white);
+    color: var(--text);
     font-size: 22px;
 }
 
 .profile-email {
     margin: 9px 0 0;
-    color: var(--gray);
+    color: var(--muted);
     font-size: 12px;
     word-break: break-word;
 }
@@ -227,9 +404,9 @@
     gap: 8px;
     margin: 24px 0 28px;
     padding: 10px 16px;
-    border: 1px solid rgba(0, 230, 118, 0.18);
+    border: 1px solid rgba(0, 230, 118, .18);
     border-radius: 999px;
-    background: rgba(0, 230, 118, 0.07);
+    background: rgba(0, 230, 118, .07);
     color: var(--green);
     font-size: 11px;
     font-weight: 700;
@@ -240,27 +417,27 @@
     height: 8px;
     border-radius: 50%;
     background: var(--green);
-    box-shadow: 0 0 10px rgba(0, 230, 118, 0.8);
+    box-shadow: 0 0 10px rgba(0, 230, 118, .8);
 }
 
 .logout-button {
     width: 100%;
     padding: 13px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, .14);
     border-radius: 10px;
     background: transparent;
-    color: var(--white);
+    color: var(--text);
     font-family: inherit;
     font-size: 12px;
     font-weight: 700;
     cursor: pointer;
-    transition: var(--transition);
+    transition: .2s;
 }
 
 .logout-button:hover {
     color: var(--green);
-    border-color: rgba(0, 230, 118, 0.5);
-    background: rgba(0, 230, 118, 0.06);
+    border-color: rgba(0, 230, 118, .5);
+    background: rgba(0, 230, 118, .06);
     transform: translateY(-2px);
 }
 
@@ -275,6 +452,48 @@
     }
 }
 
+/* Responsividade */
+
+@media (max-width: 650px) {
+    .auth-page .navbar {
+        height: 70px;
+    }
+
+    .auth-page .logo {
+        font-size: 17px;
+        gap: 7px;
+    }
+
+    .auth-page .logo-icon {
+        width: 32px;
+        height: 32px;
+        flex-basis: 32px;
+    }
+
+    .auth-page .nav-actions {
+        gap: 7px;
+    }
+
+    .auth-page .login-button,
+    .auth-page .nav-download {
+        padding: 9px 10px;
+        font-size: 10px;
+    }
+
+    .auth-main {
+        padding: 40px 14px;
+    }
+
+    .auth-modal {
+        padding: 25px;
+    }
+
+    .auth-page .toast {
+        left: 14px;
+        bottom: 14px;
+    }
+}
+
 @media (max-width: 480px) {
     .profile-page {
         padding: 105px 14px 35px;
@@ -283,12 +502,4 @@
     .profile-card {
         padding: 30px 22px;
     }
-}
-
-.logo-icon img,
-.auth-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
 }
