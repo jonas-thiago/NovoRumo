@@ -19,11 +19,14 @@ if (loginForm) {
 
     showToast("Autenticando...");
 
+    /*  https://rasping-confidant-late.ngrok-free.dev/ 
+        http://192.168.56.10:3001/   */
+
     fetch("https://rasping-confidant-late.ngrok-free.dev/api/usuarios/login", {
       method: "POST",
       headers: { 
         "Content-Type": "application/json",
-        "ngrok-skip-browser-warning": "true" // Obriga o ngrok a não travar a requisição
+        "ngrok-skip-browser-warning": "true"         // Obriga o ngrok a não travar a requisição
        },
       body: JSON.stringify({ email, senha }),
     })
@@ -119,7 +122,7 @@ if (forgotPassword) {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
-          "ngrok-skip-browser-warning": "true" // Obriga o ngrok a não travar a requisição
+          "ngrok-skip-browser-warning": "true"                // Obriga o ngrok a não travar a requisição
          },
         body: JSON.stringify({ email: email }),
       },
@@ -168,7 +171,7 @@ if (botaoSair) {
   botaoSair.addEventListener("click", (e) => {
     e.preventDefault();
 
-    localStorage.removeItem("tokenDrunkLock");
+    localStorage.removeItem("tokenNovoRumo");
     localStorage.removeItem("usuarioLogado");
 
     window.location.href = "login.html";
